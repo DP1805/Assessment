@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <launch>
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />
@@ -18,3 +19,23 @@
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
 </launch>
+=======
+<launch>
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find robot_16)/urdf/robot_16.urdf -urdf -model robot_16 -x 0.5 -y 0.5 -z 0"
+    output="screen" />
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+</launch>
+>>>>>>> afd7ac50768724142e39a93e996782eecf41a9fc

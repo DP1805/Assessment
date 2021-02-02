@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 controller_joint_names: ['', 'L_joint', 'R_joint', 'Slider_joint', ]
+=======
+controller_joint_names: ['', 'L_joint', 'R_joint', 'Slider_joint', ]
+>>>>>>> afd7ac50768724142e39a93e996782eecf41a9fc

@@ -1,0 +1,20 @@
+<launch>
+  <param name="robot_description" command="cat $(find robot_19)/urdf/robot_19.urdf"/>
+
+  <rosparam file="$(find robot_19)/config/joint_names_robot_19.yaml" command="load"/>
+
+    <node name="controller_spawner" 
+          pkg ="controller_manager" 
+          type="spawner" 
+          ns="/robot_19" 
+          args="base_to_second_joint_position_controller joint_state_controller"/>
+    
+	<!-- converts joint states to TF transforms -->
+    <node name="robot_state_publisher" 
+          pkg="robot_state_publisher" 
+          type="robot_state_publisher" 
+          respawn="false" 
+          output="screen">
+        <remap from="joint_states" to="/robot_19/joint_states" />
+    </node>
+</launch>

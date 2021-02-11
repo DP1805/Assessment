@@ -297,8 +297,8 @@
   </link>
 
   <joint name="joint_sensor_laser" type="fixed">
-    <origin xyz="0.225 0 0.105" rpy="0 0 0"/>
-    <parent link="base_link"/>
+    <origin xyz="0.155 -0.05 0.025" rpy="1.57075 -1.57075 0"/>
+    <parent link="slider_link"/>
     <child link="laser_link"/>
   </joint>
 
@@ -310,19 +310,19 @@
     </inertial>
     <collision>
       <geometry>
-        <box size="0.01 0.01 0.25"/>
+        <box size="0.01 0.01 0.35"/>
       </geometry>
     </collision>
     <visual>
       <geometry>
-        <box size="0.05 0.05 0.25"/>
+        <box size="0.05 0.05 0.35"/>
       </geometry>
       <material name="white"/>
     </visual>
   </link>
 
   <joint name="joint_sensor_camera" type="fixed">
-    <origin xyz="-0.175 0 0.41" rpy="0 0 0"/>
+    <origin xyz="-0.175 0 0.485" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="camera_link"/>
   </joint>
@@ -346,7 +346,7 @@
   <gazebo reference="laser_link">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>20</update_rate>
       <ray>
         <scan>

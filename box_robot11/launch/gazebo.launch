@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <node
     name="tf_footprint_base"
@@ -18,7 +19,7 @@
 
   <param name="robot_description" command="cat $(find box_robot11)/urdf/box_robot11.urdf"/>
 
-  <rosparam file="$(find box_robot11)/config/joint_names_box_robot11.yaml" command="load"/>
+<!--  <rosparam file="$(find box_robot11)/config/joint_names_box_robot11.yaml" command="load"/>
 
     <node name="controller_spawner" 
           pkg ="controller_manager" 
@@ -26,13 +27,13 @@
           ns="/box_robot11" 
           args="base_to_second_joint_position_controller joint_state_controller"/>
     
-	<!-- converts joint states to TF transforms -->
+	converts joint states to TF transforms 
     <node name="robot_state_publisher" 
           pkg="robot_state_publisher" 
           type="robot_state_publisher" 
           respawn="false" 
           output="screen">
         <remap from="joint_states" to="/box_robot11/joint_states" />
-    </node>
+    </node> -->
 
 </launch>

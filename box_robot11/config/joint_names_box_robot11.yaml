@@ -15,4 +15,4 @@ box_robot11:
 gazebo_ros_control/pid_gains:
 
         
-     slider_joint: {p: 10.0, i: 0.0, d: 0.0}
+     slider_joint: {p: 20.0, i: 0.0, d: 0.0}

@@ -5,8 +5,6 @@
 <robot
   name="box_robot11">
 
-<link name="dummy">
-   </link>
   <link
     name="base_link">
     <inertial>
@@ -47,11 +45,6 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="dummy_joint" type="fixed">
-     <parent link="dummy"/>
-     <child link="base_link"/>
-  </joint>
 
   <link
     name="castor_link">
@@ -160,7 +153,7 @@
     <child
       link="right_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
   </joint>
   <link
     name="left_link">
@@ -213,7 +206,7 @@
     <child
       link="left_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
   </joint>
   <link
     name="slider_link">
@@ -271,7 +264,7 @@
       lower="-0.3"
       upper="0"
       effort="10000"
-      velocity="5.0" />
+      velocity="20.0" />
     <dynamics
       damping="0"
       friction="0" />
@@ -330,6 +323,7 @@
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <alwaysOn>true</alwaysOn>
+      <legacyMode>false</legacyMode> 
       <updateRate>20</updateRate>
       <leftJoint>left_joint</leftJoint>
       <rightJoint>right_joint</rightJoint>
@@ -414,25 +408,5 @@
       </plugin>
     </sensor>
   </gazebo>
-
-
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/box_robot11</robotNamespace>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      <legacyModeNS>true</legacyModeNS>
-    </plugin>
-  </gazebo>
-
-  <!-- transmission -->
-  <transmission name="base_to_second_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="motor1">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="slider_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
 
 </robot>

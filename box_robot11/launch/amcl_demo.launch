@@ -4,7 +4,7 @@
   <master auto="start"/>
 
   <!-- Map server -->
-  <arg name="map_file" default="$(find box_robot11)/maps/dev_map.yaml"/> <!---"added map location" -->
+  <arg name="map_file" default="$(find box_robot11)/maps/my_map.yaml"/> <!---"added map location" -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 

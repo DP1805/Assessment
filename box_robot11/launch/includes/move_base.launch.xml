@@ -3,13 +3,13 @@
 
   
   <arg name="odom_frame_id"   default="odom"/>
-  <arg name="base_frame_id"   default="base_link"/> <!---"added base frame" -->
+  <arg name="base_frame_id"   default="base_link"/> 
   <arg name="global_frame_id" default="odom"/> 
   <arg name="odom_topic" default="odom" />
-  <arg name="laser_topic" default="robot/laser/scan" /> <!---"added scan topic" -->
+  <arg name="laser_topic" default="robot/laser/scan" />
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="$(find box_robot11)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />  <!---"added location for all params" -->
+    <rosparam file="$(find box_robot11)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />  
     <rosparam file="$(find box_robot11)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />   
     <rosparam file="$(find box_robot11)/param/local_costmap_params.yaml" command="load" />   
     <rosparam file="$(find box_robot11)/param/global_costmap_params.yaml" command="load" />
@@ -18,7 +18,7 @@
     <rosparam file="$(find box_robot11)/param/global_planner_params.yaml" command="load" />
     <rosparam file="$(find box_robot11)/param/navfn_global_planner_params.yaml" command="load" />
     
-    <!-- reset frame_id parameters using user input data -->
+
     <param name="global_costmap/global_frame" value="$(arg global_frame_id)"/>
     <param name="global_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
     <param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
